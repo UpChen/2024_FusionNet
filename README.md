@@ -15,6 +15,6 @@ Coming Soon...
 
 
 ### Contact
-If you have any questions, please feel free to contact me via `chen675220387@gmail.com`.
+If you have any questions, please feel free to contact me via `xum35@cardiff.ac.uk`.
 
 
