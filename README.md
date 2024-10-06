@@ -35,7 +35,7 @@ einops==0.6.1
    
 2. **Dataset Preparation**
 
-   Download and unzip [ViMirr dataset](https://drive.google.com/file/d/1NO8uO6AALmI1Bh3UUh68tx1POHyC6O2i/view?usp=drive_link)).
+   Download and unzip ([ViMirr dataset](https://drive.google.com/file/d/1NO8uO6AALmI1Bh3UUh68tx1POHyC6O2i/view?usp=drive_link)).
    
 4. **Training**
    
