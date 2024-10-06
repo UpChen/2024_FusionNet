@@ -178,7 +178,6 @@ def main():
         # net = net.apply(freeze_bn) # freeze BN
         params = [
             {"params": net.module.segformer.parameters(), "lr": args['finetune_lr']},
-            # {"params": net.module.decode_head.parameters(), "lr": args['finetune_lr']},
             {"params": net.module.aspp.parameters(), "lr": args['scratch_lr']},
             {"params": net.module.ra_attention_spatial_high.parameters(), "lr": args['scratch_lr']},
             {"params": net.module.ra_attention_spatial_low.parameters(), "lr": args['scratch_lr']},
@@ -186,24 +185,7 @@ def main():
             {"params": net.module.ra_attention_high.parameters(), "lr": args['scratch_lr']},
             {"params": net.module.project.parameters(), "lr": args['scratch_lr']},
             {"params": net.module.final_pre.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.conv1.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.conv2.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.bn1.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.bn2.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.globalAvgPool.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.fc1.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.fc2.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.fc3.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.fc4.parameters(), "lr": args['scratch_lr']},
             {"params": net.module.final_query.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.final_other.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.ra_attention_4.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.encoder.backbone.parameters(), "lr": args['finetune_lr']},
-            # {"params": net.module.encoder.aspp.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.encoder.final_pre.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.ra_attention.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.project.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.module.final_pre.parameters(), "lr": args['scratch_lr']}
         ]
     # single-GPU training
     else:
@@ -213,30 +195,15 @@ def main():
         # net = net.apply(freeze_bn) # freeze BN
         params = [
             {"params": net.segformer.parameters(), "lr": args['finetune_lr']},
-            # {"params": net.decode_head.parameters(), "lr": args['finetune_lr']},
             {"params": net.aspp.parameters(), "lr": args['scratch_lr']},
             {"params": net.ra_attention_spatial_high.parameters(), "lr": args['scratch_lr']},
             {"params": net.ra_attention_spatial_low.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.fc.parameters(), "lr": args['scratch_lr']},
             {"params": net.ra_attention_low.parameters(), "lr": args['scratch_lr']},
             {"params": net.ra_attention_high.parameters(), "lr": args['scratch_lr']},
             {"params": net.project.parameters(), "lr": args['scratch_lr']},
             {"params": net.final_pre.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.conv1.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.conv2.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.bn1.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.bn2.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.globalAvgPool.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.fc1.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.fc2.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.fc3.parameters(), "lr": args['scratch_lr']},
             {"params": net.ffm.parameters(), "lr": args['scratch_lr']},
             {"params": net.final_query.parameters(), "lr": args['scratch_lr']},
-            # {"params": net.final_other.parameters(), "lr": args['scratch_lr']},
-            # {"params": self.backbone.deformation_trajectory_attention_1.parameters(), "lr": self.scratch_learning_rate},
-            # {"params": self.backbone.deformation_trajectory_attention_2.parameters(), "lr": self.scratch_learning_rate},
-            # {"params": self.backbone.deformation_trajectory_attention_3.parameters(), "lr": self.scratch_learning_rate},
-            # {"params": self.projection.parameters(), "lr": self.scratch_learning_rate},
         ]
 
     # optimizer = optim.SGD(params, momentum=args['momentum'], weight_decay=args['weight_decay'])
