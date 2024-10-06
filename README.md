@@ -6,7 +6,7 @@ School of Computer Science and Informatics, Cardiff University
 
 
 <p align="center">
-  <img src="resources/Architecture.pdf"  width="750"/>
+  <img src="resources/Architecture-1.png"  width="750"/>
 </p>
 
 
