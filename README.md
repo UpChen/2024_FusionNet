@@ -1,7 +1,25 @@
 # Fusion of Short-term and Long-term Attention for Video Mirror Detection (ICME Oral 2024)
 
-[ICME 2024] Official code release of our paper "Fusion of Short-term and Long-term Attention for Video Mirror Detection"
+Mingchen Xu, Yukun Lai, Ze Ji, Jing Wu
 
+School of Computer Science and Informatics, Cardiff University
+
+
+<p align="center">
+  <img src="resources/teaser.png"  width="750"/>
+</p>
+
+
+### Requirement
+
+cuda==11.1   
+cudnn==8.0  
+torch==1.9.0   
+timm==0.9.6   
+transformers==4.30.2   
+pytorch-lightning==1.5.10  
+medpy==0.4.0  
+einops==0.6.1
 
 ### Dataest
 
