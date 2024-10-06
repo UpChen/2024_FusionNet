@@ -37,7 +37,7 @@ einops==0.6.1
 
    Download and unzip ([ViMirr dataset](https://drive.google.com/file/d/1NO8uO6AALmI1Bh3UUh68tx1POHyC6O2i/view?usp=drive_link)).
    
-4. **Training**
+3. **Training**
    
    To train the model, execute:
     
@@ -45,12 +45,20 @@ einops==0.6.1
    python train.py
    ```
    
-6. **Testing**
+4. **Testing**
 
    After training, update the checkpoint file path in the infer.py script. Then, test the trained model using:
    
    ```shell
    python infer.py
+   ```
+   
+5. **Evaluating**
+
+   After testing, update the results file path in the eval.py script. Then, evaluate the results using:
+   
+   ```shell
+   python eval.py
    ```
    
 ## Citation
