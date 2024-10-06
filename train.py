@@ -286,51 +286,24 @@ def train(net, optimizer):
             optimizer.zero_grad()
 
             exemplar_pre, query_pre1, query_pre2, query_final, other_final = net(exemplar, query, other)
-            # heat = _sigmoid(heat)
-            # exemplar_logits = exemplar_outputs.logits
-            # query_logits = query_outputs.logits
-            # print(logits.shape)
-            # exemplar_pre = torch.nn.functional.interpolate(
-            #     exemplar_logits, size=exemplar.size()[2:], mode="bilinear", align_corners=False
-            # )
-            # query_pre = torch.nn.functional.interpolate(
-            #     query_logits, size=query.size()[2:], mode="bilinear", align_corners=False
-            # )
-            # print(exemplar_pre.shape)
+          
             exemplar_bce_loss = segmentation_loss(exemplar_pre, query_gt)
-            # query_bce_loss = segmentation_loss(query_pre, query_gt)
             query_pre1_bce_loss = segmentation_loss(query_pre1, query_gt)
             query_pre2_bce_loss = segmentation_loss(query_pre2, query_gt)
             query_final_bce_loss = segmentation_loss(query_final, query_gt)
             other_bce_loss = segmentation_loss(other_final, other_gt)
-            # bce_loss2 = binary_xloss(query_pre, query_gt)
-            # bce_loss3 = binary_xloss(other_pre, other_gt)
 
             exemplar_hinge_loss = lovasz_hinge(exemplar_pre, query_gt)
-            # query_hinge_loss = lovasz_hinge(query_pre, query_gt)
             query_pre1_hinge_loss = lovasz_hinge(query_pre1, query_gt)
             query_pre2_hinge_loss = lovasz_hinge(query_pre2, query_gt)
             query_final_hinge_loss = lovasz_hinge(query_final, query_gt)
-            # query_hinge_loss = lovasz_hinge(query_pre, query_gt)
             other_hinge_loss = lovasz_hinge(other_final, other_gt)
-            # loss_hinge2 = lovasz_hinge(query_pre, query_gt)
-            # loss_hinge3 = lovasz_hinge(other_pre, other_gt)
-            # loss_heat = loss_calc3(heat, query_guass)
-
-            # loss_hinge_examplar = lovasz_hinge(examplar_final, exemplar_gt)
-            # loss_hinge_query = lovasz_hinge(query_final, query_gt)
-            # loss_hinge_other = lovasz_hinge(other_final, other_gt)
+          
             
             loss_seg = (exemplar_bce_loss + query_pre1_bce_loss + query_pre2_bce_loss + query_final_bce_loss +
                         other_bce_loss + exemplar_hinge_loss + query_pre1_hinge_loss + query_pre2_hinge_loss +
                         query_final_hinge_loss + other_hinge_loss)
             
-            # loss_seg = bce_loss1 + bce_loss2 + bce_loss3 + loss_hinge1 + loss_hinge2 + loss_hinge3
-            # classification loss
-            
-            # scene_labels = torch.zeros(scene_logits.shape[0], dtype=torch.long).cuda()
-            # cla_loss = ce_loss(scene_logits, scene_labels) * 10
-            # loss = loss_seg + cla_loss
             loss = loss_seg
 
             if args['fp16']:
@@ -514,23 +487,4 @@ def reverse_normalize(normalized_image):
 
 if __name__ == '__main__':
     main()
-    # a = torch.rand(2, 2)
-    # print(a)
-    # b = torch.ones(2, 2)
-    # print(b)
-    # print(a*b)
-    # print(torch.matmul(a, b))
-    #
-    # str1 = str("xumingchen-qiuxiaoyu")
-    # str2 = str("xumingchen")
-    # str3 = str("qiuxiaoyu")
-    # str4 = str("mingchen-qiuxiaoyu")
-    # str5 = str("xumingchen-qiuxiaoyu1")
-    # str6 = str("xumingchen-qiuxiao2")
-    # str7 = str("xumingchen-xiaoyu3")
-    # str8 = str("chen-qiuxiaoyu4")
-    # # if "xumingchen" and "qiuxiaoyu" in str3:
-    # #     print(True)
-    #
-    # if str3.find("xumingchen") != -1 and str3.find("qiuxiaoyu") != -1:
-    #     print(True)
+   
