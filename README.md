@@ -47,13 +47,15 @@ einops==0.6.1
    
 4. **Testing**
 
+   Download the weight of a well-trained FusionNet on VMD and ViMirr ([model weights](https://drive.google.com/drive/folders/1L_A9wm5qYbgiLuIo8b8GZApgJkFx1p6M?usp=drive_link)).
+
    After training, update the checkpoint file path in the infer.py script. Then, test the trained model using:
    
    ```shell
    python infer.py
    ```
    
-5. **Evaluating**
+6. **Evaluating**
 
    After testing, update the results file path in the eval.py script. Then, evaluate the results using:
    
